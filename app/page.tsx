@@ -1,5 +1,5 @@
 import type { NextPage } from 'next';
-import VerVuelos from './components/VerVuelos';
+import VerVuelos from './BusquedaA/VerVuelos';
 
 const Home: NextPage = () => {
   return (

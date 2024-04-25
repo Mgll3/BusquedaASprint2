@@ -1,4 +1,4 @@
-import { calculateDuration, sortByDirectFlight, handleSortByDuration, handleSortByPrice } from '../components/Funciones';
+import { calculateDuration, sortByDirectFlight, handleSortByDuration, handleSortByPrice } from '../BusquedaA/Funciones';
 
 describe('calculateDuration', () => {
   it('calcula correctamente la duración entre dos horas dadas', () => {
@@ -12,15 +12,15 @@ describe('calculateDuration', () => {
 describe('sortByDirectFlight', () => {
     it('debería ordenar los vuelos con prioridad a los directos y luego por escalas', () => {
       const flights: Flight[] = [
-        { id: 1, hora_ida: '08:00', hora_vuelta: '10:00', precio: 200, tipo_vuelo: '1 Escala', equipaje: 'Personal' },
-        { id: 2, hora_ida: '09:00', hora_vuelta: '11:00', precio: 250, tipo_vuelo: 'Directo', equipaje: 'Personal' },
-        { id: 3, hora_ida: '10:00', hora_vuelta: '12:00', precio: 300, tipo_vuelo: '2 Escalas', equipaje: 'Personal' },
+        { id: 1, departureDate: '08:00', arrivalDate: '10:00', price: 200, tipo_vuelo: '1 Escala', equipaje: 'Personal' },
+        { id: 2, departureDate: '09:00', arrivalDate: '11:00', price: 250, tipo_vuelo: 'Directo', equipaje: 'Personal' },
+        { id: 3, departureDate: '10:00', arrivalDate: '12:00', price: 300, tipo_vuelo: '2 Escalas', equipaje: 'Personal' },
       ];
       const sortedFlights = sortByDirectFlight(flights);
       const expectedOrder: Flight[] = [
-        { id: 2, hora_ida: '09:00', hora_vuelta: '11:00', precio: 250, tipo_vuelo: 'Directo', equipaje: 'Personal' },
-        { id: 1, hora_ida: '08:00', hora_vuelta: '10:00', precio: 200, tipo_vuelo: '1 Escala', equipaje: 'Personal' },
-        { id: 3, hora_ida: '10:00', hora_vuelta: '12:00', precio: 300, tipo_vuelo: '2 Escalas', equipaje: 'Personal' },
+        { id: 2, departureDate: '09:00', arrivalDate: '11:00', price: 250, tipo_vuelo: 'Directo', equipaje: 'Personal' },
+        { id: 1, departureDate: '08:00', arrivalDate: '10:00', price: 200, tipo_vuelo: '1 Escala', equipaje: 'Personal' },
+        { id: 3, departureDate: '10:00', arrivalDate: '12:00', price: 300, tipo_vuelo: '2 Escalas', equipaje: 'Personal' },
       ];
       expect(sortedFlights).toEqual(expectedOrder);
     });
